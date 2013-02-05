@@ -1,9 +1,43 @@
-<div class="hero-unit">
-  <h1>Cheerio!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+<div class="container">
+    <div class="login-wrapper" style="margin-top: 10%">
+        <div style="text-align: center">
+            <i class="icon-info-sign logo-icon"></i>
+        </div>
+
+        <div id="login-manager">
+
+            <div id="login" class="login-wrapper animated" ng-hide="isLoading">
+                <div class="input-group">
+                    <input type="text" placeholder="username" class="input-transparent" id="username" ng-model="username"/>
+                    <input type="password" placeholder="password" class="input-transparent" ng-model="password"/>
+                </div>
+                <button id="login-submit" type="button" class="login-button" ng-click="login()">Login</button>
+            </div>
+
+            <div id="loading" class="inner-well" style="margin: 0 auto;" ng-show="isLoading">
+                <div id="progress_bar" class="ui-progress-bar ui-container" style="height: 31px">
+                    <div class="ui-progress" style="width: 79%;">
+                        <span class="ui-label" style="display:none;">Processing <b class="value">79%</b></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </div>
+
+<div class="row-fluid" style="bottom: 10px; position: absolute; margin-left: auto; margin-right: auto; z-index: -1">
+    <div class="span12">
+        <div class="footer">
+            <div>2013 &copy; Mustached-Cyril</div>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+    body {
+        background: url('/images/linen-light.png') repeat !important;
+        overflow: auto !important;
+    }
+</style>
