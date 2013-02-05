@@ -1,0 +1,14 @@
+@import "compass";
+
+@media (max-width: 767px) {
+  body {
+    padding: 0;
+  }
+
+  .notifications {
+    right: 20px;
+    left: 20px;
+    width: auto;
+  }
+
+}
