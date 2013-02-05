@@ -1,10 +1,20 @@
 'use strict';
 
 mustachedCyrilApp.controller('MainCtrl', 
-	['$scope', function($scope) {
-  $scope.awesomeThings = [
-    'HTML5 Boilerplate',
-    'AngularJS',
-    'Testacular'
-  ];
+	['$scope', '$timeout', 'NotificationService', 
+	function($scope, $timeout, NotificationService) {
+
+		$timeout(function() {
+			NotificationService.warning('Foo', 'foobar.');
+			$timeout(function() {
+				NotificationService.error('Foo', 'foobar.');
+				$timeout(function() {
+					NotificationService.info('Foo', 'foobar.');
+					$timeout(function() {
+						NotificationService.success('Foo', 'foobar.');
+					}, 1000);
+				}, 1000);
+			}, 1000);
+		}, 1000);
+
 }]);
