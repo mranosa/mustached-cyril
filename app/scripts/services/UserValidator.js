@@ -13,19 +13,11 @@ mustachedCyrilApp.factory('UserValidator', function(StringValidator) {
 		var existResult = this.exists(user);
 
 		if(!notEmptyResult.success) {
-			return {
-				title : notEmptyResult.title,
-				message : notEmptyResult.message,
-				success : false
-			};
+			return notEmptyResult;
 		}
 
 		if(!existResult.success) {
-			return {
-				title : existResult.title,
-				message : existResult.message,
-				success : false
-			};
+			return existResult;
 		}
 
 		return {success : true};
@@ -37,6 +29,7 @@ mustachedCyrilApp.factory('UserValidator', function(StringValidator) {
 			StringValidator.isBlank(user.password)) {
 
             return {
+            	errorType : 'warning',
 				title : 'Empty Fields!',
 				message : 'All Items are required.',
 				success : false
@@ -46,6 +39,16 @@ mustachedCyrilApp.factory('UserValidator', function(StringValidator) {
 		return {success : true};
     },
     exists: function(user){
+    	//TODO for now use admin/admin
+    	if(user.username !== 'admin' && user.password !== 'admin'){
+    		return {
+    			errorType : 'error',
+				title : 'Invalid Credentials!',
+				message : 'Please check username or password.',
+				success : false
+            };	
+    	}
+
 		return {success : true};
     }
   };

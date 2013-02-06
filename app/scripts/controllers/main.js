@@ -22,8 +22,13 @@ mustachedCyrilApp.controller('MainCtrl',
 
 			if(!validationResult.success){
 				NotificationService.wobbleElement('#login');
-				NotificationService.warning(validationResult.title, validationResult.message);
 
+				if(validationResult.errorType === 'error'){
+					NotificationService.error(validationResult.title, validationResult.message);
+				} else {
+					NotificationService.warning(validationResult.title, validationResult.message);	
+				}
+				
 				return;
 			}
 
