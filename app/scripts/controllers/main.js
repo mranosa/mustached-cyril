@@ -1,8 +1,8 @@
 'use strict';
 
 mustachedCyrilApp.controller('MainCtrl', 
-	['$scope', '$timeout', 'NotificationService', 'UserValidator', 
-	function($scope, $timeout, NotificationService, UserValidator) {
+	['$scope', '$timeout', 'NotificationService', 'UserValidator', 'ProgressBarService', 
+	function($scope, $timeout, NotificationService, UserValidator, ProgressBarService) {
 
 		$scope.user = {
 			name : '',
@@ -33,7 +33,34 @@ mustachedCyrilApp.controller('MainCtrl',
 			}
 
 			//TODO animate and shit
+			loadApp();
 		};
+
+		function loadApp(){
+			//show loading bar
+	        $scope.isLoading = true;
+
+	        //loading status...
+	        console.log('Initialize everything...');
+	        ProgressBarService.start();
+	        ProgressBarService.animateProgress(45, function(){
+	            $timeout(function() {
+	                console.log('Loading user info...');
+	                ProgressBarService.animateProgress(70, function(){
+	                    $timeout(function() {
+	                        console.log('Loading user forms...');
+	                        ProgressBarService.animateProgress(100, function(){
+	                            console.log('Done!');
+	                            $timeout(function() {
+	                                console.log('Do post process here.');
+	                                alert('YOLO!');
+	                            }, 500);
+	                        });
+	                    }, 2000);
+	                });
+	            }, 2000);
+	        });
+		}
 
 		//start :3
 		$scope.init();

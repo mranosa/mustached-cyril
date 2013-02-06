@@ -1,6 +1,6 @@
 'use strict';
 
-mustachedCyrilApp.factory('NotificationService', function($timeout) {
+mustachedCyrilApp.factory('NotificationService', ['$timeout', function($timeout) {
   
   var NotificationService = function() {
     //global setting for pines notify
@@ -43,4 +43,4 @@ mustachedCyrilApp.factory('NotificationService', function($timeout) {
 
   return new NotificationService();
   
-});
+}]);

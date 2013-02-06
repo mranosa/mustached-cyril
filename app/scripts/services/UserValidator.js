@@ -1,6 +1,6 @@
 'use strict';
 
-mustachedCyrilApp.factory('UserValidator', function(StringValidator) {
+mustachedCyrilApp.factory('UserValidator', ['StringValidator', function(StringValidator) {
   var UserValidator = function() {
     //global setting for pines notify
     $.pnotify.defaults.delay = 1000;
@@ -54,4 +54,4 @@ mustachedCyrilApp.factory('UserValidator', function(StringValidator) {
   };
 
   return new UserValidator();
-});
+}]);
