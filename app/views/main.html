@@ -7,11 +7,13 @@
         <div id="login-manager">
 
             <div id="login" class="login-wrapper animated" ng-hide="isLoading">
-                <div class="input-group">
-                    <input type="text" placeholder="username" class="input-transparent" id="username" ng-model="username"/>
-                    <input type="password" placeholder="password" class="input-transparent" ng-model="password"/>
-                </div>
-                <button id="login-submit" type="button" class="login-button" ng-click="login()">Login</button>
+                <form ng-submit="login()">
+                    <div class="input-group">
+                        <input type="text" placeholder="username" class="input-transparent" id="username" ng-model="user.username"/>
+                        <input type="password" placeholder="password" class="input-transparent" ng-model="user.password"/>
+                    </div>
+                    <button id="login-submit" type="submit" class="login-button" >Login</button>
+                </form>
             </div>
 
             <div id="loading" class="inner-well" style="margin: 0 auto;" ng-show="isLoading">
