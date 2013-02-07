@@ -1,8 +1,10 @@
 'use strict';
 
 mustachedCyrilApp.controller('MainCtrl', 
-	['$scope', '$timeout', 'NotificationService', 'UserValidator', 'ProgressBarService', 
-	function($scope, $timeout, NotificationService, UserValidator, ProgressBarService) {
+	['$scope', '$timeout', 'NotificationService', 'UserValidator', 
+	'ProgressBarService', 'NavService', '$location', 
+	function($scope, $timeout, NotificationService, UserValidator, 
+		ProgressBarService, NavService, $location) {
 
 		$scope.user = {
 			name : '',
@@ -33,6 +35,7 @@ mustachedCyrilApp.controller('MainCtrl',
 			}
 
 			//TODO animate and shit
+			NotificationService.success('Successful Login!', 'Account Verified! Welcome!');	
 			loadApp();
 		};
 
@@ -53,7 +56,7 @@ mustachedCyrilApp.controller('MainCtrl',
 	                            console.log('Done!');
 	                            $timeout(function() {
 	                                console.log('Do post process here.');
-	                                alert('YOLO!');
+	                                $location.path('/inspection');
 	                            }, 500);
 	                        });
 	                    }, 2000);

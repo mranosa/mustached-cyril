@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="styles/main.css"/>
 
         <link rel="stylesheet" href="styles/progressbar.css"/>
+        <link rel="stylesheet" href="components/nanoscroller/bin/css/nanoscroller.css"/>
         <link rel="stylesheet" href="components/animate/animate.min.css">
         <link rel="stylesheet" href="components/pines-notify/oxygen/icons.css"/>
         <link rel="stylesheet" href="components/pines-notify/jquery.pnotify.default.icons.css"/>
@@ -30,10 +31,26 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <div ng-view></div>
+        <section id="main">
+            <div class="top-nav" ng-controller="NavCtrl" ng-show="navProp.show">
+                <ul class="breadcrumb">
+                  <li ng-repeat="navitem in navitems" class="{{navitem.cls}}">
+                      <a href="{{navitem.url}}">
+                        <i class="{{navitem.iconCls}}"></i> 
+                        <span>{{navitem.label}}</span>
+                    </a>
+                  </li>  
+                </ul>
+            </div>
+        
+            <!-- main view -->
+            <div ng-view style="width: 100%; height: 100%"></div>
+        </section>
+        
 
         <script src="components/jquery/jquery.min.js"></script>
         <script src="components/pines-notify/jquery.pnotify.min.js"></script>
+        <script src="components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js"></script>
         <script src="scripts/vendor/angular.js"></script>
 
         <!-- build:js scripts/scripts.js -->
@@ -43,6 +60,14 @@
         <script src="scripts/services/UserValidator.js"></script>
         <script src="scripts/services/StringValidator.js"></script>
         <script src="scripts/services/ProgressBarService.js"></script>
+        <script src="scripts/controllers/inspection.js"></script>
+        <script src="scripts/controllers/nav.js"></script>
+        <script src="scripts/services/NavService.js"></script>
+        <script src="scripts/controllers/map.js"></script>
+        <script src="scripts/controllers/form.js"></script>
+        <script src="scripts/controllers/history.js"></script>
+        <script src="scripts/controllers/complaints.js"></script>
+        <script src="scripts/controllers/summary.js"></script>
         <!-- endbuild -->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

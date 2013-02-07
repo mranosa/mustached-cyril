@@ -21,7 +21,8 @@ ol, ul {
 }
 
 nav.main-nav {
-  > ul {
+  div {
+    > ul {
     height: 100%;
 
     border-bottom: 1px solid #4A4A54;
@@ -77,6 +78,7 @@ nav.main-nav {
 
 
   }
+  }
 }
 
 nav#primary {
@@ -111,14 +113,16 @@ nav#primary {
 }
 
 nav#secondary {
-  float: right;
+  float: left;
+  width: 200px;
   height: 100%;
   background: image-url("/images/linen-gray.png");
   @include box-shadow(-2px 0px 15px rgba(0, 0, 0, 0.4));
   border-right: 1px solid black;
   border-left: 1px solid black;
 
-  > ul {
+  div {
+    > ul {
     > li {
       > a {
         font-size: 12px;
@@ -145,12 +149,12 @@ nav#secondary {
       }
     }
   }
+  }
 }
 
 section#main {
   height: 100%;
-  overflow: auto;
-
+  overflow: hidden;
 }
 
 
