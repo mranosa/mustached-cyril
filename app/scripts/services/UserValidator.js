@@ -30,9 +30,9 @@ mustachedCyrilApp.factory('UserValidator', ['StringValidator', function(StringVa
 
             return {
             	errorType : 'warning',
-				title : 'Empty Fields!',
-				message : 'All Items are required.',
-				success : false
+      				title : 'Empty Fields!',
+      				message : 'All Items are required.',
+      				success : false
             };
         }
 
@@ -40,13 +40,13 @@ mustachedCyrilApp.factory('UserValidator', ['StringValidator', function(StringVa
     },
     exists: function(user){
     	//TODO for now use admin/admin
-    	if(user.username !== 'admin' && user.password !== 'admin'){
+    	if(user.username !== 'admin' || user.password !== 'admin'){
     		return {
     			errorType : 'error',
-				title : 'Invalid Credentials!',
-				message : 'Please check username or password.',
-				success : false
-            };	
+				  title : 'Invalid Credentials!',
+				  message : 'Please check username or password.',
+				  success : false
+        };	
     	}
 
 		return {success : true};
