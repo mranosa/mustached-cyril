@@ -15,6 +15,20 @@ mustachedCyrilApp.controller('MainCtrl',
 
 		$scope.init = function(){
 			//TODO check if login should be shown or not :)
+			$('#inspNavButton').toggle( 
+			    function() {
+			        $('#right').animate({ left: 100 }, 'slow', function() {
+			            $('#inspNavButton').html('Close');
+			            alert('blah');
+			        });
+			    }, 
+			    function() {
+			        $('#right').animate({ left: 0 }, 'slow', function() {
+			            $('#inspNavButton').html('Menu');
+			            alert('ahhh');
+			        });
+			    }
+			);
 		};
 
 		$scope.login = function(){

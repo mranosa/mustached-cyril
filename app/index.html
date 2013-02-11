@@ -31,21 +31,49 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <section id="main">
-            <div class="top-nav" ng-controller="NavCtrl" ng-show="navProp.show">
-                <ul class="breadcrumb">
-                  <li ng-repeat="navitem in navitems" class="{{navitem.cls}}">
-                      <a href="{{navitem.url}}">
-                        <i class="{{navitem.iconCls}}"></i> 
-                        <span>{{navitem.label}}</span>
-                    </a>
-                  </li>  
-                </ul>
-            </div>
-        
-            <!-- main view -->
-            <div ng-view style="width: 100%; height: 100%"></div>
-        </section>
+        <div id="menu" style="z-index: 1">
+            <ul>
+                <li>Menu Item 1</li>
+                <li>Menu Item 2</li>
+            </ul>
+        </div>
+        <div id="right" style="z-index: 5">
+            <section id="main">
+                <div class="top-nav" ng-controller="NavCtrl" ng-show="navProp.show">
+                    <div class="row-fluid">
+                        <!-- left nav -->
+                        <div class="span1">
+                            <ul class="breadcrumb">
+                                <li>
+                                    <a ng-click="toggleInsp()"><span>☰</span></a>
+                                </li>  
+                            </ul>
+                        </div>
+                        <!-- left nav end -->
+
+                        <!-- mid nav -->
+                        <div class="span10">
+                            <ul class="breadcrumb">
+                                <li ng-repeat="navitem in navitems" class="{{navitem.cls}}">
+                                    <a href="{{navitem.url}}">
+                                        <i class="{{navitem.iconCls}}"></i> 
+                                        <span>{{navitem.label}}</span>
+                                    </a>
+                                </li>  
+                            </ul>
+                        </div>
+                        <!-- mid nav end -->
+
+                        <!-- right nav -->
+                        <div class="span1"></div>
+                        <!-- right nav end -->
+                    </div>
+                </div>
+            
+                <!-- main view -->
+                <div ng-view style="width: 100%; height: 92%"></div>
+            </section>
+        </div>
         
 
         <script src="components/jquery/jquery.min.js"></script>

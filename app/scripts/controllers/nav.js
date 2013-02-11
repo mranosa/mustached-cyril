@@ -4,7 +4,8 @@ mustachedCyrilApp.controller('NavCtrl', ['$scope', '$timeout', 'NavService',
     function($scope, $timeout, NavService) {
 
     $scope.navProp  = {
-        show : false
+        show : false,
+        showInsp : false
     };
 
     $scope.$on('show_nav', function () {
@@ -28,13 +29,18 @@ mustachedCyrilApp.controller('NavCtrl', ['$scope', '$timeout', 'NavService',
         }, 1000);
     };
 
-    $scope.hideNav = function () {
-        $('top-nav').addClass("animated fadeOutUp");
-
-        $timeout(function() {
-            $('top-nav').removeClass("animated fadeOutUp");
-            $scope.navProp.show = false;
-        }, 500);
+    $scope.toggleInsp = function () {
+        if($scope.navProp.showInsp){
+            //hide
+            $('#right').animate({ left: 0 }, 'fast', function() {
+                $scope.navProp.showInsp = false;
+            });
+        } else {
+            //show
+            $('#right').animate({ left: 100 }, 'fast', function() {
+                $scope.navProp.showInsp = true;
+            });
+        }
     };
 
 }]);
