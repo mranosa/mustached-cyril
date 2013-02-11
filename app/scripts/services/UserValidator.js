@@ -2,9 +2,7 @@
 
 mustachedCyrilApp.factory('UserValidator', ['StringValidator', function(StringValidator) {
   var UserValidator = function() {
-    //global setting for pines notify
-    $.pnotify.defaults.delay = 1000;
-    $.pnotify.defaults.history = false;
+    
   };
 
   UserValidator.prototype = {
